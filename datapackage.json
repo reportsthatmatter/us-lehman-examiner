@@ -1,0 +1,31 @@
+{
+  "name": "valukas-report-lehman-brothers-examiner",
+  "title": "Report of Anton R. Valukas, Examiner, In re Lehman Brothers Holdings Inc., et al. — Volume 1",
+  "resources": [
+    {
+      "title": "Volume 1 (official, as published): Sections I & II (Introduction, Executive Summary & Procedural Background); Section III.A.1 (Risk) — pages 1-43 are a cover page and the master table of contents for the full 9-volume report",
+      "path": "archive/valukas-report-volume-1.pdf",
+      "format": "pdf",
+      "mediatype": "application/pdf",
+      "sha256": "ff68a50a00cf36aabb68107f9c6cc20299b2121bd909c2a2025be3a89bea402d",
+      "sources": [
+        {
+          "title": "Jenner & Block LLP (Counsel to the Examiner)",
+          "web": "https://www.jenner.com/a/web/fhT1LdvJNo4USaKZcDPSNw/7BZYSc/volume-1.pdf"
+        },
+        {
+          "title": "Jenner & Block: Lehman Brothers Holdings Inc. Chapter 11 Proceedings — Examiner's Report",
+          "web": "https://www.jenner.com/en/news-insights/news/lehman-brothers-holdings-inc-chapter-11-proceedings-examiner-s-report"
+        }
+      ]
+    },
+    {
+      "title": "Volume 1 (ingested subset): pages 44-239 of the official PDF above — Volume 1's own local contents page through the end of the volume, excluding the master 9-volume table of contents and its duplicate cover page. Derived deterministically with poppler's pdfseparate/pdfunite; see ingest.ts.",
+      "path": "archive/valukas-report-volume-1-body.pdf",
+      "format": "pdf",
+      "mediatype": "application/pdf",
+      "sha256": "cf52e63563f976cb059ee72093a181ac537544b44da8f956b157e1667e1f88a8"
+    }
+  ],
+  "licence": "US public domain — a court filing by an examiner appointed under 11 U.S.C. § 1104(c) in United States Bankruptcy Court, Southern District of New York, In re Lehman Brothers Holdings Inc., et al., Case No. 08-13555 (JMP). Filed 11 March 2010; publicly released the same month."
+}
