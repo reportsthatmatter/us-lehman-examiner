@@ -1,0 +1,77 @@
+# Golden pages: ground truth for this report, read off the PDF page image and checked by `pnpm ingest verify`.
+# Format and rules: @rtm/ingest src/golden.ts and the site's docs/quality-harness.md ("Golden pages").
+# A page marked xfail is a known pipeline defect: it stays red here, verify stays green, and the bead says why.
+# `volume` 1 is valukas-report-volume-1-body.pdf, 2 is valukas-report-volume-3-body.pdf (the volumes the report lists, in order).
+# Footnote numbers run on through the whole report (1 to 3,000+); their markers are flush against the word or figure before them.
+pages:
+  # The report's own Introduction: a heading, two paragraphs, seven markers (several flush against a parenthesis or full stop).
+  - pdf: 2
+    volume: 1
+    printed: 2
+    verified_by: "Claude (Sonnet 5.5), 2026-10-02, against the page image"
+    features: [F, I, ordinary]
+    xfail: reportsthatmatter-0bf
+    xfail_only: [blocks, markers]
+    blocks:
+      - heading: "INTRODUCTION"
+      - paragraph: {start: "On January 29, 2008, Lehman Brothers Holdings Inc.", end: "bankruptcy proceeding ever filed.", notes: [1, 2, 3, 4, 5, 6, 7]}
+      - paragraph: {start: "There are many reasons Lehman failed, and the responsibility is shared", continues: true}
+    footnotes: [1, 2, 3, 4, 5, 6, 7]
+    markers: [1, 2, 3, 4, 5, 6, 7]
+  # A table of leverage figures with a marker inside every cell, and a three-line paragraph the pipeline cut into three at a line end.
+  - pdf: 20
+    volume: 1
+    printed: 20
+    verified_by: "Claude (Sonnet 5.5), 2026-10-02, against the page image"
+    features: [B, C, F, tables]
+    xfail: reportsthatmatter-1xr, reportsthatmatter-0bf
+    xfail_only: [markers, must_contain, must_not_be_quote]
+    footnotes: [71, 72, 73, 74, 75, 76, 77, 78, 79, 80, 81]
+    markers: [71, 72, 73, 74, 75, 76, 77, 78, 79, 80, 81]
+    must_contain:
+      - "Lehman’s failure to disclose the use of an accounting device to significantly and temporarily lower leverage, at the same time that it affirmatively represented those “low” leverage numbers to investors as positive news, created a misleading portrayal of Lehman’s true financial health."
+      - "Q4 2007 $38.6 B 16.1 17.8 1.7"
+    must_not_be_quote: ["Date Repo 105 Reported Net Difference Usage"]
+  # A page opening on lines carried over from the page before (capitalised "Gregory"), a subhead "(a)", and two paragraphs with flush markers.
+  - pdf: 60
+    volume: 1
+    printed: 59
+    verified_by: "Claude (Sonnet 5.5), 2026-10-02, against the page image"
+    features: [B, F, I]
+    xfail: reportsthatmatter-38s.10, reportsthatmatter-0bf
+    xfail_only: [blocks, opens]
+    continues_previous: true
+    opens_with: "Gregory (Lehman’s President and Chief Operating Officer)"
+    blocks:
+      - paragraph: {start: "This Section of the Report describes the principal investment strategy", end: "the new strategy."}
+      - heading: "(a) Lehman’s Changed Business Strategy"
+      - paragraph: {start: "In 2006, Lehman made a significant change in its business strategy", end: "to third parties.", notes: [158]}
+      - paragraph: {start: "During 2006, Lehman’s management decided to emphasize the storage business", continues: true, notes: [159]}
+    footnotes: [158, 159]
+    markers: [158, 159]
+  # Two paragraphs in the middle of a section; the second carries three markers flush against a comma and a closing quotation mark.
+  - pdf: 21
+    volume: 2
+    printed: 747
+    verified_by: "Claude (Sonnet 5.5), 2026-10-02, against the page image"
+    features: [F, ordinary]
+    xfail: reportsthatmatter-0bf
+    xfail_only: [blocks, markers]
+    blocks:
+      - paragraph: {start: "As set forth more fully below, the Examiner concludes", end: "true financial condition."}
+      - paragraph: {start: "A trier of fact could find that Lehman’s use of tens of billions", end: "by whole points.", notes: [2896, 2897, 2898]}
+    footnotes: [2896, 2897, 2898]
+    markers: [2896, 2897, 2898]
+  # One paragraph cut into three blocks at line ends (xqu), ahead of a leverage table whose cells each carry a marker.
+  - pdf: 22
+    volume: 2
+    printed: 748
+    verified_by: "Claude (Sonnet 5.5), 2026-10-02, against the page image"
+    features: [C, F, tables]
+    xfail: reportsthatmatter-xqu, reportsthatmatter-0bf
+    xfail_only: [markers, must_contain]
+    footnotes: [2899, 2900, 2901, 2902, 2903, 2904, 2905, 2906, 2907, 2908, 2909]
+    markers: [2899, 2900, 2901, 2902, 2903, 2904, 2905, 2906, 2907, 2908, 2909]
+    must_contain:
+      - "Lehman’s publicly reported net leverage ratio for November 30, 2007 (fourth quarter 2007), February 29, 2008 (first quarter 2008), and May 31, 2008 (second quarter 2008) was 16.1x, 15.4x and 12.1x, respectively."
+      - "Q4 2007 $38.6 B 16.1 17.8 1.7"
