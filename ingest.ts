@@ -1,4 +1,4 @@
-import { pipeline, contentsOutline, flushFootnoteMarkers } from "@rtm/ingest";
+import { quoteListRunOns, pipeline, contentsOutline, flushFootnoteMarkers } from "@rtm/ingest";
 
 /**
  * How this report is built. Owned by the report: every decision that shaped
@@ -66,6 +66,8 @@ export default pipeline({
     { path: "archive/valukas-report-volume-3-body.pdf", sha256: "a6731331d255386fdb6efaa624b09754f6e4727f60bb6b7933cadc1daa2e5b39" },
   ],
   passes: [
+    // A quotation running over a page arrives as two (reportsthatmatter-38s.9).
+    quoteListRunOns(),
     // Each volume's own contents page is read as an outline of its headings
     // (labels "a)", "(1)", "(a)", "(i)", "a." as well as "A."), and the
     // outline carries over from one volume to the next.
