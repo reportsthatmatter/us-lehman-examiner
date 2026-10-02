@@ -2,8 +2,8 @@
   "name": "us-lehman-examiner",
   "private": true,
   "type": "module",
-  "description": "Source archive and ingestion definition for: Report of Anton R. Valukas, Examiner, In re Lehman Brothers Holdings Inc., et al. (Volume 1)",
+  "description": "Source archive and ingestion definition for: Report of Anton R. Valukas, Examiner, In re Lehman Brothers Holdings Inc., et al. (Volumes 1 and 3)",
   "dependencies": {
-    "@rtm/ingest": "github:reportsthatmatter/ingest#v0.14.0"
+    "@rtm/ingest": "github:reportsthatmatter/ingest#v0.15.0"
   }
 }

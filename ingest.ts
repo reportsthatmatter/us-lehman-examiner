@@ -1,16 +1,16 @@
-import { pipeline, contentsOutline } from "@rtm/ingest";
+import { pipeline, contentsOutline, flushFootnoteMarkers } from "@rtm/ingest";
 
 /**
  * How this report is built. Owned by the report: every decision that shaped
  * its text is named here, and the passes it composes are library code, so a
  * fix to a shared pass reaches every report that calls it.
  *
- * Scope: Volume 1 of 9 only (reportsthatmatter-b7z). Volume 1 covers
+ * Scope: Volumes 1 and 3 of 9 (reportsthatmatter-b7z, reportsthatmatter-dnv).
+ * Volume 1 covers
  * Sections I & II (Introduction, Executive Summary & Procedural Background)
  * and Section III.A.1 (Risk). The "Repo 105" material readers most associate
- * with this report is discussed in the Executive Summary here, but its
- * dedicated analysis (Section III.A.4) is in Volume 3, out of scope for this
- * release — see README.md.
+ * with this report is discussed in the Executive Summary here; its dedicated
+ * analysis (Section III.A.4) is Volume 3, below.
  *
  * The official Volume 1 PDF (archive/valukas-report-volume-1.pdf, pinned and
  * checksummed below for provenance) opens with pages 1-43: a cover page and
@@ -38,16 +38,43 @@ import { pipeline, contentsOutline } from "@rtm/ingest";
  *   pdfunite page-*.pdf archive/valukas-report-volume-1-body.pdf
  * This is what gets ingested. The full official PDF stays pinned in archive/
  * for provenance and is what a reader following source_url downloads.
+ *
+ * Volume 3 (reportsthatmatter-dnv) adds Section III.A.4, Repo 105 (the
+ * Examiner's dedicated analysis of the accounting device, printed pages
+ * 732-1053 of the whole report). The official Jenner & Block PDF
+ * (archive/valukas-report-volume-3.pdf, 336 pages) opens with a cover page,
+ * the short-form master contents of all nine volumes (pages 3-8, roman
+ * numbered) and a second cover page (9); page 10 begins Volume 3's own
+ * local contents (five pages, 727-731), and the body starts on page 15.
+ * archive/valukas-report-volume-3-body.pdf is pages 10-336, cut as for
+ * Volume 1:
+ *   pdfseparate -f 10 -l 336 archive/valukas-report-volume-3.pdf page-%04d.pdf
+ *   pdfunite page-*.pdf archive/valukas-report-volume-3-body.pdf
+ * Volumes carry the whole report's pagination and footnote numbering, so
+ * Volume 1's pages (1-195) and notes (1-690) and Volume 3's (727-1053,
+ * 2800s onward) do not collide.
  */
 export default pipeline({
   id: "us-lehman-examiner",
-  title: "Report of Anton R. Valukas, Examiner, In re Lehman Brothers Holdings Inc., et al. — Volume 1",
+  title: "Report of Anton R. Valukas, Examiner, In re Lehman Brothers Holdings Inc., et al. — Volumes 1 and 3",
   authors: "Anton R. Valukas, Examiner (Jenner & Block LLP)",
   published_at: "11 March 2010",
   source_url: "https://www.jenner.com/en/news-insights/news/lehman-brothers-holdings-inc-chapter-11-proceedings-examiner-s-report",
   repo: ".",
   volumes: [
     { path: "archive/valukas-report-volume-1-body.pdf", sha256: "cf52e63563f976cb059ee72093a181ac537544b44da8f956b157e1667e1f88a8" },
+    { path: "archive/valukas-report-volume-3-body.pdf", sha256: "a6731331d255386fdb6efaa624b09754f6e4727f60bb6b7933cadc1daa2e5b39" },
   ],
-  passes: [contentsOutline()],
+  passes: [
+    // Each volume's own contents page is read as an outline of its headings
+    // (labels "a)", "(1)", "(a)", "(i)", "a." as well as "A."), and the
+    // outline carries over from one volume to the next.
+    contentsOutline(),
+    // Markers the PDF prints flush against the word before them ("2007.2",
+    // "investors.\u201d2860"): before this pass 5 of Volume 1's 690 notes and
+    // 1 of Volume 3's 1,094 had a linked reference (reportsthatmatter-0bf).
+    // Safe here because a note number names one note: the volumes share the
+    // report's own continuous numbering (Volume 1: 1-690; Volume 3: 2847-3951).
+    flushFootnoteMarkers(),
+  ],
 });
