@@ -38,7 +38,7 @@ pages:
     printed: 59
     verified_by: "Claude (Sonnet 5.5), 2026-10-02, against the page image"
     features: [B, F, I]
-    xfail: reportsthatmatter-38s.10, reportsthatmatter-0bf
+    xfail: reportsthatmatter-j6qm, reportsthatmatter-0bf
     xfail_only: [blocks, opens]
     continues_previous: true
     opens_with: "Gregory (Lehman’s President and Chief Operating Officer)"
