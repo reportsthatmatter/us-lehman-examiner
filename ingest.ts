@@ -1,4 +1,4 @@
-import { layoutPageJoins, quoteListRunOns, pipeline, contentsOutline, flushFootnoteMarkers } from "@rtm/ingest";
+import { layoutMarkers, layoutPageJoins, quoteListRunOns, pipeline, contentsOutline } from "@rtm/ingest";
 
 /**
  * How this report is built. Owned by the report: every decision that shaped
@@ -70,17 +70,18 @@ export default pipeline({
     // quotation mark (or follows a full stop on a justified page) joins when the
     // layout says it runs on: no first-line indent, same face (reportsthatmatter-38s.10).
     layoutPageJoins(),
+    // Footnote markers are raised digits, in the leverage tables on every cell ("16.1" then 72): link
+    // them from the layout, to a note on the same page, in sequence (reportsthatmatter-0bf, reportsthatmatter-b94).
+    layoutMarkers(),
     // A quotation running over a page arrives as two (reportsthatmatter-38s.9).
     quoteListRunOns(),
     // Each volume's own contents page is read as an outline of its headings
     // (labels "a)", "(1)", "(a)", "(i)", "a." as well as "A."), and the
     // outline carries over from one volume to the next.
     contentsOutline(),
-    // Markers the PDF prints flush against the word before them ("2007.2",
-    // "investors.\u201d2860"): before this pass 5 of Volume 1's 690 notes and
-    // 1 of Volume 3's 1,094 had a linked reference (reportsthatmatter-0bf).
-    // Safe here because a note number names one note: the volumes share the
-    // report's own continuous numbering (Volume 1: 1-690; Volume 3: 2847-3951).
-    flushFootnoteMarkers(),
+    // (flushFootnoteMarkers, which linked the flush markers by their shape, is replaced by
+    // layoutMarkers above: with it the layout decides which numbers are markers, and the text
+    // linkers no longer run. Measured with them run after it as well: no marker more, four more
+    // links to numbers the PDF does not raise, reportsthatmatter-b94.)
   ],
 });
