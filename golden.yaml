@@ -10,6 +10,8 @@ pages:
     printed: 2
     verified_by: "Claude (Sonnet 5.5), 2026-10-02, against the page image"
     features: [F, I, ordinary]
+    xfail: reportsthatmatter-0bf
+    xfail_only: [blocks, markers]
     blocks:
       - heading: "INTRODUCTION"
       - paragraph: {start: "On January 29, 2008, Lehman Brothers Holdings Inc.", end: "bankruptcy proceeding ever filed.", notes: [1, 2, 3, 4, 5, 6, 7]}
@@ -22,8 +24,8 @@ pages:
     printed: 20
     verified_by: "Claude (Sonnet 5.5), 2026-10-02, against the page image"
     features: [B, C, F, tables]
-    xfail: reportsthatmatter-1xr
-    xfail_only: [must_contain, must_not_be_quote]
+    xfail: reportsthatmatter-1xr, reportsthatmatter-0bf
+    xfail_only: [markers, must_contain, must_not_be_quote]
     footnotes: [71, 72, 73, 74, 75, 76, 77, 78, 79, 80, 81]
     markers: [71, 72, 73, 74, 75, 76, 77, 78, 79, 80, 81]
     must_contain:
@@ -36,6 +38,8 @@ pages:
     printed: 59
     verified_by: "Claude (Sonnet 5.5), 2026-10-02, against the page image"
     features: [B, F, I]
+    xfail: reportsthatmatter-j6qm, reportsthatmatter-0bf
+    xfail_only: [blocks, opens]
     continues_previous: true
     opens_with: "Gregory (Lehman’s President and Chief Operating Officer)"
     blocks:
@@ -51,19 +55,21 @@ pages:
     printed: 747
     verified_by: "Claude (Sonnet 5.5), 2026-10-02, against the page image"
     features: [F, ordinary]
+    xfail: reportsthatmatter-0bf
+    xfail_only: [blocks, markers]
     blocks:
       - paragraph: {start: "As set forth more fully below, the Examiner concludes", end: "true financial condition."}
       - paragraph: {start: "A trier of fact could find that Lehman’s use of tens of billions", end: "by whole points.", notes: [2896, 2897, 2898]}
     footnotes: [2896, 2897, 2898]
     markers: [2896, 2897, 2898]
-  # One paragraph cut into three blocks at line ends (xqu), ahead of a leverage table whose cells each carry a marker.
+  # One paragraph cut into three blocks at line ends (the year-like continuation is rejoined since mv1t), ahead of a leverage table whose cells each carry a marker.
   - pdf: 22
     volume: 2
     printed: 748
     verified_by: "Claude (Sonnet 5.5), 2026-10-02, against the page image"
     features: [C, F, tables]
-    xfail: reportsthatmatter-xqu
-    xfail_only: [must_contain]
+    xfail: reportsthatmatter-0bf
+    xfail_only: [markers, must_contain]   # the leverage table cells; the rejoined sentence (xqu) now passes
     footnotes: [2899, 2900, 2901, 2902, 2903, 2904, 2905, 2906, 2907, 2908, 2909]
     markers: [2899, 2900, 2901, 2902, 2903, 2904, 2905, 2906, 2907, 2908, 2909]
     must_contain:

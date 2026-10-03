@@ -1941,9 +1941,7 @@ A trier of fact could find that Lehman's use of tens of billions of dollars of R
 
 %%page 748%%
 
-Lehman's publicly reported net leverage ratio for November 30, 2007 (fourth quarter 2007), February 29, 2008 (first quarter 2008), and May 31, 2008 (second quarter
-
-2008) was 16.1x, 15.4x and 12.1x, respectively.[^2899] Without the balance sheet benefit of
+Lehman's publicly reported net leverage ratio for November 30, 2007 (fourth quarter 2007), February 29, 2008 (first quarter 2008), and May 31, 2008 (second quarter 2008) was 16.1x, 15.4x and 12.1x, respectively.[^2899] Without the balance sheet benefit of
 
 Repo 105 transactions, Lehman's net leverage ratios for the same periods would have been 17.8x, 17.3x and 13.9x, respectively:[^2900]
 
