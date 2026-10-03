@@ -1,6 +1,6 @@
 # Fidelity review — Report of Anton R. Valukas, Examiner, In re Lehman Brothers Holdings Inc., et al. — Volumes 1 and 3
 
-Pages: 523  ·  Footnotes: 1785  ·  Auto-fixes applied: 7  ·  Human corrections: 0
+Pages: 523  ·  Footnotes: 1789  ·  Auto-fixes applied: 7  ·  Human corrections: 0
 
 **90 open**, 0 reviewed and judged correct.
 
