@@ -1,0 +1,374 @@
+report: us-lehman-examiner
+adjudicated: 2026-10-03
+by: "Claude (Opus 5.5) subagent, blind to the rules' call, reading the page images; every disagreement with the pipeline re-read"
+method: "Mini-reference for a report with no clean edition (38s.15; scripts/ingest/pagebreak-sample.ts, `pnpm ingest referee draft`). Population: every page turn, the last line of running text on the old page and the first on the new (pdftohtml -xml; notes, running heads and folios left out). 15 drawn by a seeded shuffle (stratum random), then 5 from each confidence tier of the layout rules at @rtm/ingest v0.21.0 (stratum tier-low/medium/high; a short tier topped up from the others). Each break was answered from the rendered page images (the foot of the old page, the head of the new one), blind to the rules' call: does a new block (paragraph, bullet, numbered paragraph, quotation, heading) start between the two lines, or does the block run on? prev and next are the running-text lines either side; when notes, a caption or a heading stand between, the verdict says whether the paragraph's text continues on the new page, and `between` names what stands between. `set` assigns the break to development or held-out (alternating within each stratum, seeded); `tier` and `rule` are the rules' call at v0.21.0 when drawn."
+seed: "38s.15"
+breaks:
+  - page: 14
+    volume: 1
+    prev: "the loss it suffered on its exposure to Lehman – it had “broken the buck,” i.e., its share"
+    next: "price had fallen to less than $1 per share.53 On October 3, 2008, Congress passed a $700"
+    verdict: join
+    stratum: random
+    set: held-out
+    tier: high
+    rule: "R1: unfinished, next line flush"
+    between: notes
+    image: true
+    note: "sentence runs on: 'its share / price had fallen'"
+  - page: 24
+    volume: 1
+    prev: "Lowitt in connection with their failure to disclose the use of the practice and"
+    next: "against Ernst & Young for its failure to meet professional standards in"
+    verdict: join
+    stratum: random
+    set: dev
+    tier: high
+    rule: "R1: unfinished, next line flush"
+    between: notes
+    image: true
+    note: "sentence runs on mid-clause"
+  - page: 28
+    volume: 1
+    prev: "legitimate purpose and that there was no impropriety in those transactions.99"
+    next: "PROCEDURAL BACKGROUND AND NATURE OF THE EXAMINATION"
+    verdict: split
+    stratum: random
+    set: held-out
+    tier: high
+    rule: "split: font changes across the break"
+    between: notes
+    image: true
+    note: "new page opens with Part II heading"
+  - page: 61
+    volume: 1
+    prev: "investments, that these investments were highly profitable relative to their risk in the"
+    next: "then‐buoyant economic environment, and that Lehman was missing out on significant"
+    verdict: join
+    stratum: random
+    set: dev
+    tier: high
+    rule: "R1: unfinished, next line flush"
+    between: notes
+    image: true
+    note: "sentence runs on mid-clause"
+  - page: 76
+    volume: 1
+    prev: "limit its participation in a number of big deals.224 Lehman’s management decided that"
+    next: "in the future, it would participate in such deals without regard to the single transaction"
+    verdict: join
+    stratum: random
+    set: dev
+    tier: high
+    rule: "R1: unfinished, next line flush"
+    between: notes
+    image: true
+    note: "sentence runs on: 'decided that / in the future'"
+  - page: 83
+    volume: 1
+    prev: "Roger Nagioff as the head of FID. Finally, this section discusses the extent to which"
+    next: "Lehman’s officers informed the Board of Directors of the continuing expansion of"
+    verdict: join
+    stratum: tier-high
+    set: dev
+    tier: high
+    rule: "R1: unfinished, next line flush"
+    between: notes
+    image: true
+    note: "sentence runs on: 'extent to which / Lehman's officers informed'"
+  - page: 84
+    volume: 1
+    prev: "records who do not meet standard guidelines for documentation requirements.”262"
+    next: "Although Lehman’s Alt‐A mortgages were never as risky as subprime mortgages, its"
+    verdict: join
+    stratum: tier-low
+    set: dev
+    tier: low
+    rule: "R2: finished, but a full justified line and a flush next line"
+    between: notes
+    image: true
+    note: "finished sentence, but new page's first line is flush left where paragraphs indent; next indented para follows"
+  - page: 110
+    volume: 1
+    prev: "culminated in Lehman’s commitment to participate in an approximately $22 billion"
+    next: "joint venture with Tishman Speyer for the acquisition of the publicly‐held Archstone"
+    verdict: join
+    stratum: tier-high
+    set: held-out
+    tier: high
+    rule: "R1: unfinished, next line flush"
+    between: notes
+    image: true
+    note: "sentence runs on: '$22 billion / joint venture'"
+  - page: 130
+    volume: 1
+    prev: "failed.481"
+    next: "In the midst of the market deterioration, an analyst at Citigroup issued an"
+    verdict: split
+    stratum: random
+    set: held-out
+    tier: high
+    rule: "split: finished"
+    between: notes
+    image: true
+    above: "“virtually closed,”480 and Lehman’s attempts at selling Archstone bridge equity largely"
+    note: "new page opens with indented paragraph"
+  - page: 147
+    volume: 1
+    prev: "the extent to which Lehman’s commercial real estate investments were unhedged.)553"
+    next: "Some members of Lehman management were concerned that hedging the leveraged"
+    verdict: join
+    stratum: tier-low
+    set: dev
+    tier: low
+    rule: "R2: finished, but a full justified line and a flush next line"
+    between: notes
+    image: true
+    note: "finished sentence, but new page's first line is flush left where paragraphs indent"
+  - page: 152
+    volume: 1
+    prev: "formula; or (2) raising equity, to increase the denominator in the net leverage formula."
+    next: "But Lehman did not successfully take either of these tacks during the final quarter of"
+    verdict: join
+    stratum: tier-low
+    set: dev
+    tier: low
+    rule: "R2: finished, but a full justified line and a flush next line"
+    between: notes
+    image: true
+    note: "finished sentence, but new page's first line is flush left where paragraphs indent"
+  - page: 153
+    volume: 1
+    prev: "until the second quarter of 2008.580"
+    next: "During the first quarter of 2008, Fuld also decided that Lehman would not raise"
+    verdict: split
+    stratum: tier-high
+    set: dev
+    tier: high
+    rule: "split: finished"
+    between: notes
+    image: true
+    note: "new page opens with indented paragraph"
+  - page: 180
+    volume: 1
+    prev: "rule."
+    next: "(iv) Firm‐Wide Risk Appetite Excesses"
+    verdict: split
+    stratum: random
+    set: dev
+    tier: high
+    rule: "split: next opens on a label"
+    between: notes
+    image: true
+    above: "override the risk appetite limits. Such decisions are subject to the business judgment"
+    drawn: "high; ons are subject to the business judgment / (iv) Firm‐Wide Risk Appetite Excesses"
+    note: "heading '(iv) Firm-Wide Risk Appetite Excesses' tops the new page; corrected prev: last body line is 17 'rule.', not 16"
+  - page: 187
+    volume: 1
+    prev: "management, and the extraordinarily detailed information available to management."
+    next: "After reviewing this evidence, the Examiner finds insufficient evidence to support a"
+    verdict: join
+    stratum: tier-low
+    set: held-out
+    tier: low
+    rule: "R2: finished, but a full justified line and a flush next line"
+    between: notes
+    image: true
+    note: "finished sentence, but new page's first line is flush left where paragraphs indent"
+  - page: 12
+    volume: 2
+    prev: "and commercial real estate positions Fuld wanted to exit – was having on the firm’s"
+    next: "publicly reported net leverage and net balance sheet.2867 An early 2007 document from"
+    verdict: join
+    stratum: random
+    set: dev
+    tier: high
+    rule: "R1: unfinished, next line flush"
+    between: notes
+    image: true
+    note: "sentence runs on: 'on the firm's / publicly reported'"
+  - page: 22
+    volume: 2
+    prev: "points.2898"
+    next: "Lehman’s publicly reported net leverage ratio for November 30, 2007 (fourth"
+    verdict: split
+    stratum: random
+    set: held-out
+    tier: high
+    rule: "split: finished"
+    between: notes
+    image: true
+    above: "(typically $1.8 billion).”2897 Repo 105 moved net leverage not by tenths, but by whole"
+    note: "new page opens with indented paragraph"
+  - page: 37
+    volume: 2
+    prev: "firm‐wide Repo 105 transactions at quarter‐end. By first quarter 2008, the dollar value"
+    next: "of assets that Lehman temporarily removed from its balance sheet at quarter‐end"
+    verdict: join
+    stratum: random
+    set: dev
+    tier: high
+    rule: "R1: unfinished, next line flush"
+    between: notes
+    image: true
+    note: "sentence runs on: 'the dollar value / of assets'"
+  - page: 98
+    volume: 2
+    prev: "structured finance markets in late 2007 intensified balance sheet pressures on banks.3169"
+    next: "One analyst wrote in late September 2007: “[Banks’] net incomes this quarter don’t"
+    verdict: join
+    stratum: tier-low
+    set: held-out
+    tier: low
+    rule: "R2: finished, but a full justified line and a flush next line"
+    between: notes
+    image: true
+    note: "finished sentence, but new page's first line is flush left where paragraphs indent"
+  - page: 113
+    volume: 2
+    prev: "allowed its leverage ratio to increase higher than planned, which further exacerbated"
+    next: "the tension between the two messages (growth vs. balance sheet belt‐tightening).3226"
+    verdict: join
+    stratum: tier-high
+    set: dev
+    tier: high
+    rule: "R1: unfinished, next line flush"
+    between: notes
+    image: true
+    note: "sentence runs on: 'exacerbated / the tension'"
+  - page: 140
+    volume: 2
+    prev: "Mizuho. . . .”3325"
+    next: "Higgins wrote to Jeff Michaels, on May 2, 2008: “In light of…the firms max"
+    verdict: split
+    stratum: tier-medium
+    set: held-out
+    tier: medium
+    rule: "split: finished, next line flush"
+    between: notes
+    image: true
+    above: "little excited w Q end. I am looking to do an additional repo 105 with"
+    note: "bullet item ends at foot; new bullet item on new page"
+  - page: 142
+    volume: 2
+    prev: "transactions was a reduction in Lehman’s net leverage ratio.3337"
+    next: "Martin Kelly, former Global Financial Controller, said that “the only purpose"
+    verdict: split
+    stratum: tier-medium
+    set: held-out
+    tier: medium
+    rule: "split: finished, next line flush"
+    between: notes
+    image: true
+    note: "bullet item ends at foot; new bullet item on new page"
+  - page: 171
+    volume: 2
+    prev: "compared it to the limit as a ratio of tangible equity, as seen in the chart below:"
+    next: "Clement Bernard, who replaced Gentile in approximately August 2007, did not"
+    verdict: split
+    stratum: random
+    set: dev
+    tier: high
+    rule: "split: finished"
+    between: figure
+    image: true
+    drawn: "high; ible equity, as seen in the chart below: / Repo1051 Usage vs.1 X Tangible Equity"
+    note: "old para ends 'as seen in the chart below:'; new page is the chart; running text resumes below it with an indented new paragraph 'Clement Bernard, who replaced Gentile...' which is not in new_lines (id kept at drawn 29, the chart title); next set to that line (id 67) by the reviewer"
+  - page: 207
+    volume: 2
+    prev: "pressing issues at that time, such as capital raises and setting balance sheet limits.3584"
+    next: "Kelly advised the Examiner that, based upon Callan’s reaction to his concerns"
+    verdict: split
+    stratum: random
+    set: held-out
+    tier: high
+    rule: "split: finished"
+    between: notes
+    image: true
+    note: "new page opens with indented paragraph"
+  - page: 248
+    volume: 2
+    prev: "decreasing its net assets and its net leverage ratio.3759"
+    next: "(i) Summary of Lehman’s 2000 through 2007 Public"
+    verdict: split
+    stratum: tier-high
+    set: held-out
+    tier: high
+    rule: "split: next opens on a label"
+    between: notes
+    image: true
+    note: "heading '(i) Summary of Lehman's 2000 through 2007 Public Filings' tops the new page"
+  - page: 277
+    volume: 2
+    prev: "increase of the cap, from $22 billion to $25 billion in February 2007.3830"
+    next: "O’Meara regularly discussed Repo 105 limits and Lehman’s reliance on Repo"
+    verdict: split
+    stratum: tier-medium
+    set: dev
+    tier: medium
+    rule: "split: finished, next line flush"
+    between: notes
+    image: true
+    note: "bullet item ends at foot; new bullet item on new page"
+  - page: 283
+    volume: 2
+    prev: "Under O’Meara’s watch, the volume of Repo 105"
+    next: "transactions rose to $38 billion at the close of Lehman’s fourth quarter 2007 – $13 billion"
+    verdict: join
+    stratum: random
+    set: held-out
+    tier: high
+    rule: "R1: unfinished, next line flush"
+    between: notes
+    image: true
+    note: "sentence runs on: 'the volume of Repo 105 / transactions rose'"
+  - page: 291
+    volume: 2
+    prev: "on Callan’s “list” so she did not spend “any meaningful amount of time” on it.3871 While"
+    next: "a trier of fact could accept that explanation, Callan’s failure to act, which did not result"
+    verdict: join
+    stratum: random
+    set: held-out
+    tier: high
+    rule: "R1: unfinished, next line flush"
+    between: notes
+    image: true
+    note: "sentence runs on: 'While / a trier of fact'"
+  - page: 296
+    volume: 2
+    prev: "Repo 105 activity.3885"
+    next: "During the second quarter 2008, Lowitt was told that the intra‐quarter"
+    verdict: split
+    stratum: tier-medium
+    set: held-out
+    tier: medium
+    rule: "split: finished, next line flush"
+    between: notes
+    image: true
+    note: "bullet item ends at foot; new bullet item on new page"
+  - page: 316
+    volume: 2
+    prev: "[GAAP]”).3933"
+    next: "AU Section 722.07 relating to “Interim Financial Information” states that the"
+    verdict: split
+    stratum: random
+    set: dev
+    tier: medium
+    rule: "split: finished, next line flush"
+    between: notes
+    image: true
+    above: "AU § 411.04 (addressing the meaning of “present fairly in conformity with"
+    drawn: "high; ng of “present fairly in conformity with / AU Section 722.07 relating to “Interim F"
+    note: "bullet item ends at foot; new bullet item on new page; corrected prev: last body line is 19 '[GAAP]”).3933', not 18"
+  - page: 317
+    volume: 2
+    prev: "may have an effect on the interim financial information."
+    next: "AU Section 722.22 specifies that if a reviewer of interim financial information"
+    verdict: split
+    stratum: tier-medium
+    set: dev
+    tier: medium
+    rule: "split: finished, next line flush"
+    between: notes
+    image: true
+    note: "bullet item ends at foot; new bullet item on new page"
