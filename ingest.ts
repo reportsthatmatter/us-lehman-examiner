@@ -1,4 +1,4 @@
-import { layoutMarkers, layoutPageJoins, quoteListRunOns, pipeline, contentsOutline } from "@rtm/ingest";
+import { layoutMarkers, layoutPageJoins, quoteListRunOns, pipeline, contentsOutline, sequencedNoteOpenings } from "@rtm/ingest";
 
 /**
  * How this report is built. Owned by the report: every decision that shaped
@@ -73,6 +73,11 @@ export default pipeline({
     // Footnote markers are raised digits, in the leverage tables on every cell ("16.1" then 72): link
     // them from the layout, to a note on the same page, in sequence (reportsthatmatter-0bf, reportsthatmatter-b94).
     layoutMarkers(),
+    // A note whose text opens on a digit ("458 3rd Quarter…", "521 17
+    // C.F.R.") or after a justified gap ("403     Standard & Poor's") was read
+    // as the note above's text, and its marker never linked
+    // (reportsthatmatter-qsfc).
+    sequencedNoteOpenings(),
     // A quotation running over a page arrives as two (reportsthatmatter-38s.9).
     quoteListRunOns(),
     // Each volume's own contents page is read as an outline of its headings

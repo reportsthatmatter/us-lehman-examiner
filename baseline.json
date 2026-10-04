@@ -1,5 +1,5 @@
 {
-  "markdownSha": "bf363be294379dc0afe5e1f7ce498fcc64b10d0b095479640553c3867c698a46",
+  "markdownSha": "bde39640e8a3bf8812ce7c23d7a6713b3a70c5b8051e4dc3e6bbaf5830f31ac5",
   "words": 182210,
   "blocks": {
     "heading": 173,
@@ -182,7 +182,7 @@
     "Possible Defenses",
     "Notes"
   ],
-  "footnotes": 1785,
+  "footnotes": 1789,
   "pageMarkers": 522,
   "poppler": "26.08.0"
 }
