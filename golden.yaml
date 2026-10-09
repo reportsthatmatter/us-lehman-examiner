@@ -22,8 +22,8 @@ pages:
     printed: 20
     verified_by: "Claude (Sonnet 5.5), 2026-10-02, against the page image"
     features: [B, C, F, tables]
-    xfail: reportsthatmatter-1xr, reportsthatmatter-0bf
-    xfail_only: [must_contain, must_not_be_quote]
+    xfail: reportsthatmatter-05c
+    xfail_only: [must_not_be_quote]
     footnotes: [71, 72, 73, 74, 75, 76, 77, 78, 79, 80, 81]
     markers: [71, 72, 73, 74, 75, 76, 77, 78, 79, 80, 81]
     must_contain:
