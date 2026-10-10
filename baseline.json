@@ -1,11 +1,11 @@
 {
-  "markdownSha": "bde39640e8a3bf8812ce7c23d7a6713b3a70c5b8051e4dc3e6bbaf5830f31ac5",
-  "words": 182210,
+  "markdownSha": "9f547759072552012212e086445a8262e766383de58a18304f780168a5b4742d",
+  "words": 182236,
   "blocks": {
     "heading": 173,
-    "quote": 252,
+    "quote": 275,
     "list": 222,
-    "paragraph": 960
+    "paragraph": 913
   },
   "headings": [
     "INTRODUCTION",
@@ -182,7 +182,7 @@
     "Possible Defenses",
     "Notes"
   ],
-  "footnotes": 1789,
+  "footnotes": 1795,
   "pageMarkers": 522,
   "poppler": "26.08.0"
 }

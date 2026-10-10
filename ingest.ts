@@ -1,4 +1,4 @@
-import { layoutMarkers, layoutPageJoins, quoteListRunOns, pipeline, contentsOutline, sequencedNoteOpenings } from "@rtm/ingest";
+import { holdNoteSequence, doubleSpaced, layoutMarkers, layoutPageJoins, quoteListRunOns, pipeline, contentsOutline, sequencedNoteOpenings } from "@rtm/ingest";
 
 /**
  * How this report is built. Owned by the report: every decision that shaped
@@ -84,6 +84,8 @@ export default pipeline({
     // (labels "a)", "(1)", "(a)", "(i)", "a." as well as "A."), and the
     // outline carries over from one volume to the next.
     contentsOutline(),
+    doubleSpaced(),
+    holdNoteSequence(),
     // (flushFootnoteMarkers, which linked the flush markers by their shape, is replaced by
     // layoutMarkers above: with it the layout decides which numbers are markers, and the text
     // linkers no longer run. Measured with them run after it as well: no marker more, four more
