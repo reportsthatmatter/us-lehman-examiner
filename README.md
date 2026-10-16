@@ -42,9 +42,9 @@ The volumes share the report's own pagination and footnote numbering (Volume 1: 
   ```
   Both files are pinned by SHA-256 in `ingest.ts`.
 
-## License
+## Licence
 
-A U.S. court filing by an examiner appointed under 11 U.S.C. § 1104(c); no copyright restricts it.
+Text of the report: Status not established as public domain. A court filing by a court-appointed examiner and his law firm, not federal employees; no notice in the PDF. Our markup, processing and editorial additions: CC BY 4.0. Code: MIT. Evidence, caveats and the full statement are in [LICENSE](LICENSE); the MIT text is in [LICENSE-MIT](LICENSE-MIT).
 
 ## Rebuilding the text
 

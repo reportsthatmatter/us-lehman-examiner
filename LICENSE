@@ -1,0 +1,28 @@
+Licences in this repository
+===========================
+
+This repository holds a public report, the text we derive from it, and the code that builds that text. They have three different statuses. This file is a statement of those statuses, not legal advice.
+
+1. The report's text
+--------------------
+
+We have not established that this report is in the public domain, and we do not say it is. The Report of Anton R. Valukas, Examiner, In re Lehman Brothers Holdings Inc., et al., Case No. 08-13555 (JMP) (Bankr. S.D.N.Y.), was filed with the court on 11 March 2010. The Examiner was appointed under 11 U.S.C. § 1104(c) and the report was written with his counsel, Jenner & Block LLP. Neither was a federal employee, so 17 U.S.C. § 105 (works of the United States Government) does not clearly apply, and we have found no statement of rights from the Examiner or the firm. The PDFs carry no copyright notice.
+
+What we do know: it is a public court record, filed on the docket, and Jenner & Block, the Examiner's counsel, publishes it openly on its website, from which we took it (the PDFs are pinned by SHA-256 in ingest.ts). We serve it as a public-interest document with its source named. If you hold rights and object, open an issue on this repository. This is recorded as an open question (reportsthatmatter-y2y8.9).
+
+2. Our markup, processing and editorial additions
+-------------------------------------------------
+
+The structure and Markdown formatting of full.md, paragraph and section identifiers, corrections.yaml, golden.yaml, baseline.json, fidelity.md, PROCESSING.md, datapackage.json, the README and any other words we wrote are licensed under the Creative Commons Attribution 4.0 International licence (CC BY 4.0, https://creativecommons.org/licenses/by/4.0/legalcode). Attribute them to "Reports that Matter (https://reportsthatmatter.org)". This does not change the status of the report's own text, described in section 1, which we do not own.
+
+3. Code
+-------
+
+The code that builds the text (ingest.ts and other TypeScript, JavaScript and Python files, and package.json) is licensed under the MIT licence; see LICENSE-MIT, Copyright (c) 2026 Rufus Pollock and contributors.
+
+Other files
+-----------
+
+Files under archive/ are copies of the report as its publisher issued it, kept so the text can be rebuilt and checked; they have the status described in section 1.
+
+Files under reference/ are copies of other editions of the report, kept to measure our text. They keep the licence recorded for them (in reference/manifest.json where one exists, or section 1 where this file says so) and are not covered by sections 2 and 3.
